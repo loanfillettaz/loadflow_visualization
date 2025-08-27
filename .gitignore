@@ -1,0 +1,38 @@
+# === FICHIERS PYTHON ===
+__pycache__/
+*.py[cod]
+*.pyo
+
+# === FICHIER À IGNORER SPÉCIFIQUEMENT ===
+main.py
+#test.py
+
+# === ENVIRONNEMENTS VIRTUELS ===
+.env
+.venv/
+env/
+venv/
+
+# === FICHIERS DE LOGS ET TEMPORAIRES ===
+*.log
+*.tmp
+
+# === FICHIERS DE DONNÉES ===
+*.csv
+*.xlsx
+*.json
+result/
+#data/
+uploads/
+
+
+# === JUPYTER / NOTEBOOK ===
+.ipynb_checkpoints/
+
+# === CONFIGURATION EDITEUR / IDE ===
+.vscode/
+.idea/
+
+# === FICHIERS OS ===
+.DS_Store
+Thumbs.db

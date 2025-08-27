@@ -1,0 +1,3 @@
+curl -X POST "http://localhost:5000/sessions" -F "file=@C:\Users\Loan\Documents\TB\data\Research_OIKEN_XY_2025_92423.xlsx" -F "Sb=1e6" -F "Vb=400" -F "f=50" -F "name=OIKEN_Test_API" -F "sheet_name=MT_BT_92423"
+
+http://localhost:5000/sessions/<sessionID>/day_slice?hour_start=10&hour_end=17&cluster=false&anonymous=false
