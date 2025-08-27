@@ -29,6 +29,3 @@ This project bridges the gap by combining both:
 - Decision-making aid for grid operators and planners  
 - Research tool for analyzing the impact of DERs or load variability  
 
-## Author
-**Loan Fillettaz** – Bachelor Thesis, HES-SO, 2025
-
