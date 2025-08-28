@@ -36,4 +36,4 @@ It offers an open-source and customizable alternative to commercial softwares su
 
 ---
 
-This tool was developed as a part of the Bachelor's final project of Loan Fillettaz at HES-SO Valais-Wallis in Energy and Enviromental Engineering carried out at the [GridLab at HES-SO Valais-Wallis](https://gridlab.hevs.ch/).
+This tool was developed as a part of the Bachelor's final project of Loan Fillettaz at HES-SO Valais-Wallis in [Energy and Enviromental Engineering](https://www.hevs.ch/en/schools/school-of-engineering/energy-environmental-engineering/) (Smart Grid specialization) carried out at the [GridLab at HES-SO Valais-Wallis](https://gridlab.hevs.ch/).
