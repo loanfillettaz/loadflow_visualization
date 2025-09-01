@@ -5,7 +5,6 @@ __pycache__/
 
 # === FICHIER À IGNORER SPÉCIFIQUEMENT ===
 main.py
-#test.py
 
 # === ENVIRONNEMENTS VIRTUELS ===
 .env
@@ -18,9 +17,7 @@ venv/
 *.tmp
 
 # === FICHIERS DE DONNÉES ===
-*.csv
-*.xlsx
-*.json
+
 result/
 #data/
 uploads/
