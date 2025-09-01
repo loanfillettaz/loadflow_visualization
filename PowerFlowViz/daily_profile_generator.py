@@ -66,33 +66,24 @@ class DailyLoadProfileGenerator:
 
         if self.stochastic:
             np.random.seed(self.seed)
-            q_probs = np.array([0.05, 0.10, 0.25, 0.50, 0.75, 0.90, 0.95])
-            # toutes les heures sur lesquelles tu veux générer des profils
-            hours_ref = self.hours  # ['00:00', '01:00', ..., '23:00']
+            quantile_probs = np.array([0.05, 0.10, 0.25, 0.50, 0.75, 0.90, 0.95])
+            hours_ref = self.df_stats["hour"].tolist()
             n_profiles = len(base)
-            
-            # Création d'une matrice de tirages aléatoires uniforme pour chaque profil x heure
-            U = np.random.uniform(0.01, 1.0, size=(n_profiles, len(hours_ref)))
-            # Liste des sites uniques
-            Sites = self.df_stats["Site"].unique().tolist()
-            # Initialiser le DataFrame avec toutes les colonnes horaires
+
+            # Tirages aléatoires uniformes
+            U = np.random.uniform(0.0, 1.0, size=(n_profiles, len(hours_ref)))
+
+            # Génération profils
             base_hours = pd.DataFrame(0.0, index=range(n_profiles), columns=hours_ref)
-            
-            for i in range(n_profiles):
-                # Tirage aléatoire d'un site pour ce profil
-                site = np.random.choice(Sites)
-                df_site = self.df_stats[self.df_stats["Site"] == site].sort_values("hour")
-                
-                for j, h in enumerate(hours_ref):
-                    if h in df_site["hour"].values:
-                        row = df_site[df_site["hour"] == h].iloc[0]
-                        q_vals = row[["Q5","Q10","Q25","Q50","Q75","Q90","Q95"]].to_numpy(dtype=float)
-                        value = np.interp(U[i, j], q_probs, q_vals)
-                    else:
-                        value = 0.0  # si l'heure n'existe pas pour le site
+
+            for j, h in enumerate(hours_ref):
+                row = self.df_stats[self.df_stats["hour"] == h].iloc[0]
+                q_vals = row[["Q5","Q10","Q25","Q50","Q75","Q90","Q95"]].to_numpy(dtype=float)
+                for i in range(n_profiles):
+                    value = np.interp(U[i, j], quantile_probs, q_vals)
                     base_hours.at[i, h] = np.clip(value, 0, None)
-            
-            # Copier dans base (ou remplacer selon ton code)
+
+            # Copier dans base[h]
             for h in hours_ref:
                 base[h] = base_hours[h]
 
