@@ -502,7 +502,7 @@ class GridMapVisualizer:
             va_deg = row["va_degree"]
             p_kw = row["p_mw"] * 1000
             q_kvar = row["q_mvar"] * 1000
-            if row["name"] in node_with_power:
+            if row["name"] in node_with_power or (p_kw != 0 or q_kvar != 0):
                 match = self.node_df[self.node_df["ID"] == name]
                 if match.empty:
                     continue
